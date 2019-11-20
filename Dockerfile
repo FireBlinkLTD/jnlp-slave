@@ -32,6 +32,7 @@ RUN curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE
 RUN curl -fsSLO --compressed "https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSION}-linux-x64.tar.xz"
 RUN tar -xJvf node-v${NODEJS_VERSION}-linux-x64.tar.xz -C /tmp
 RUN cp -R /tmp/node-v${NODEJS_VERSION}-linux-x64/* /usr/local
+RUN rm node-v${NODEJS_VERSION}-linux-x64.tar.xz
 
 # Install Yarn package manager
 RUN npm install --global yarn@${YARN_VERSION}
