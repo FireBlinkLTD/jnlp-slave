@@ -53,6 +53,4 @@ RUN yarn -v
 ADD ./run.sh /usr/local/bin/run-jnlp-agent
 RUN chmod +x /usr/local/bin/run-jnlp-agent
 
-USER jenkins
-
 ENTRYPOINT ["run-jnlp-agent"]
