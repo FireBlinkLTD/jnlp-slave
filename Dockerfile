@@ -1,9 +1,8 @@
-FROM jenkins/jnlp-slave:3.35-5
+FROM jenkins/jnlp-slave:4.9-1-jdk11
 
-ENV DOCKER_VERSION="18.06.1"
-ARG DOCKER_COMPOSE_VERSION="1.21.1"
-ENV NODEJS_VERSION="12.13.1"
-ENV YARN_VERSION="1.19.1"
+ARG DOCKER_COMPOSE_VERSION="1.29.2"
+ENV NODEJS_VERSION="14.18.1"
+ENV YARN_VERSION="1.22.10"
 
 USER root
 
@@ -23,7 +22,7 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian stretch stable" && \
     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian stretch stable" && \
     apt-get update && \
-    apt-get install -qq -y --no-install-recommends docker-ce=${DOCKER_VERSION}~ce~3-0~debian
+    apt-get install -qq -y --no-install-recommends docker-ce
 
 RUN curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose && \
     chmod +x /usr/local/bin/docker-compose
